@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 340" width="100%" height="100%">
+  <defs>
+    <filter id="crisp-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Outer Interlocking Octagonal Geometries -->
+  <g fill="none" stroke="#0ea61e" stroke-width="2.6" stroke-linejoin="round">
+    <!-- Octagon 1: Top/Bottom/Left/Right peaks (Vertex at 12 o'clock) -->
+    <polygon points="
+      200,16 
+      284,51 
+      319,135 
+      284,219 
+      200,254 
+      116,219 
+      81,135 
+      116,51" 
+    />
+    <!-- Octagon 2: Rotated 22.5 deg (Flat top/bottom/sides) -->
+    <polygon points="
+      245,18 
+      313,86 
+      313,184 
+      245,252 
+      155,252 
+      87,184 
+      87,86 
+      155,18" 
+    />
+  </g>
+
+  <!-- Clock Radial Dial Tick Marks -->
+  <g stroke="#111827" stroke-width="4.5" stroke-linecap="round">
+    <!-- 12 o'clock -->
+    <line x1="200" y1="36" x2="200" y2="53" />
+    <!-- 1 o'clock -->
+    <line x1="248" y1="49" x2="257" y2="64" />
+    <!-- 2 o'clock -->
+    <line x1="284" y1="85" x2="299" y2="94" />
+    <!-- 3 o'clock -->
+    <line x1="299" y1="135" x2="316" y2="135" stroke-width="5" />
+    <!-- 4 o'clock -->
+    <line x1="284" y1="185" x2="299" y2="176" />
+    <!-- 5 o'clock -->
+    <line x1="248" y1="221" x2="257" y2="206" />
+    <!-- 7 o'clock -->
+    <line x1="152" y1="221" x2="143" y2="206" />
+    <!-- 8 o'clock -->
+    <line x1="116" y1="185" x2="101" y2="176" />
+    <!-- 9 o'clock -->
+    <line x1="101" y1="135" x2="84" y2="135" stroke-width="5" />
+    <!-- 10 o'clock -->
+    <line x1="116" y1="85" x2="101" y2="94" />
+    <!-- 11 o'clock -->
+    <line x1="152" y1="49" x2="143" y2="64" />
+  </g>
+
+  <!-- Central Lightbulb & Dual Brain Structure -->
+  <g id="lightbulb-brain">
+    <!-- LEFT BRAIN HEMISPHERE (Orange with Circuit Board Traces) -->
+    <g>
+      <!-- Brain Lobe Silhouette -->
+      <path d="
+        M 197 78 
+        C 183 78 168 83 162 93 
+        C 152 96 145 106 146 116 
+        C 142 124 143 135 148 142 
+        C 145 149 146 158 152 165 
+        C 160 174 176 177 197 178 
+        Z" 
+        fill="#f26419" 
+      />
+      <!-- Circuit Traces on Left Brain -->
+      <g stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <path d="M 197 90 H 180 L 172 98 V 110" />
+        <path d="M 197 106 H 185 L 178 113 V 128 L 168 138 H 155" />
+        <path d="M 197 122 H 188 L 180 130 V 150 L 172 158 H 162" />
+        <path d="M 197 140 H 188 V 162 L 182 168 H 174" />
+        <path d="M 197 158 H 188 L 182 164" />
+      </g>
+      <!-- Circuit Nodes (Vias) -->
+      <g fill="#ffffff">
+        <circle cx="172" cy="110" r="2.6" />
+        <circle cx="155" cy="138" r="2.6" />
+        <circle cx="162" cy="158" r="2.6" />
+        <circle cx="174" cy="168" r="2.6" />
+        <circle cx="180" cy="130" r="2.2" />
+      </g>
+    </g>
+
+    <!-- RIGHT BRAIN HEMISPHERE (Emerald Green with Binary Digits) -->
+    <g>
+      <!-- Brain Lobe Silhouette -->
+      <path d="
+        M 203 78 
+        C 217 78 232 83 238 93 
+        C 248 96 255 106 254 116 
+        C 258 124 257 135 252 142 
+        C 255 149 254 158 248 165 
+        C 240 174 224 177 203 178 
+        Z" 
+        fill="#16a34a" 
+      />
+      <!-- Binary Matrix Digits -->
+      <g fill="#ffffff" font-family="'JetBrains Mono', 'Roboto Mono', 'Courier New', monospace" font-size="8.8" font-weight="700" letter-spacing="0.5" text-anchor="middle">
+        <text x="228" y="96">1010</text>
+        <text x="228" y="110">010101</text>
+        <text x="228" y="124">101010</text>
+        <text x="228" y="138">010101</text>
+        <text x="228" y="152">101010</text>
+        <text x="227" y="166">0101</text>
+      </g>
+    </g>
+
+    <!-- BULB BASE / SOCKET ASSEMBLY -->
+    <g>
+      <!-- Top Green Collar -->
+      <path d="M 182 179 C 182 179 200 183 218 179 L 217 186 C 217 186 200 189 183 186 Z" fill="#16a34a" />
+
+      <!-- SIH Plate Base Background -->
+      <rect x="180" y="187" width="40" height="23" rx="2" fill="#ffffff" stroke="#111827" stroke-width="2.2" />
+      <!-- SIH Text -->
+      <text x="200" y="204" fill="#111827" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="14.5" letter-spacing="1.2" text-anchor="middle">SIH</text>
+
+      <!-- Threaded Screw Base (Horizontal Metallic Ribs) -->
+      <g stroke="#111827" stroke-width="3" stroke-linecap="round">
+        <line x1="184" y1="214" x2="216" y2="214" />
+        <line x1="188" y1="220" x2="212" y2="220" />
+      </g>
+      <!-- Rounded Bottom Contact Pin -->
+      <path d="M 193 224 C 193 228 207 228 207 224 Z" fill="#111827" />
+    </g>
+  </g>
+
+  <!-- TYPOGRAPHY: TINKERERS CLAN -->
+  <g id="team-text">
+    <!-- TINKERERS -->
+    <text 
+      x="200" 
+      y="282" 
+      fill="#0d8417" 
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+      font-weight="700" 
+      font-size="28.5" 
+      letter-spacing="9" 
+      text-anchor="middle"
+    >
+      TINKERERS
+    </text>
+
+    <!-- Wing Divider Rules & CLAN -->
+    <g>
+      <!-- Left Wing Accent Line -->
+      <path d="M 72 306 L 152 306" stroke="#0d8417" stroke-width="2" stroke-linecap="round" />
+      <!-- CLAN Text -->
+      <text 
+        x="200" 
+        y="312" 
+        fill="#0d8417" 
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-weight="600" 
+        font-size="18.5" 
+        letter-spacing="12" 
+        text-anchor="middle"
+      >
+        CLAN
+      </text>
+      <!-- Right Wing Accent Line -->
+      <path d="M 248 306 L 328 306" stroke="#0d8417" stroke-width="2" stroke-linecap="round" />
+    </g>
+  </g>
+</svg>

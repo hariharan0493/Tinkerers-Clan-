@@ -1,5 +1,14 @@
 export type Priority = 'High' | 'Medium' | 'Low';
 
+export interface ComplianceParameter {
+  parameter: string;
+  target: string;
+  ourDesign: string;
+  status: string;
+  isMet: boolean;
+  notes?: string;
+}
+
 export interface SystemHeadlineMetric {
   id: string;
   value: string;

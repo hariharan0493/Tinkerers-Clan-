@@ -1,21 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0A0E16;
-  --panel: #10151F;
-  --panel-alt: #151B27;
-  --line: #232E40;
-  --line-soft: #1A2332;
-  --text: #E7ECF3;
-  --text-dim: #8B96A8;
-  --text-faint: #586376;
-  --signal: #F0A868;
-  --signal-soft: rgba(240, 168, 104, 0.10);
-  --signal-border: rgba(240, 168, 104, 0.35);
-  --noise: #5B7A99;
-  --noise-soft: rgba(91, 122, 153, 0.12);
-  --teal: #4EBAAA;
-  --teal-soft: rgba(78, 186, 170, 0.12);
+  --bg: #070B16;
+  --panel: rgba(14, 21, 38, 0.85);
+  --panel-alt: rgba(20, 30, 55, 0.75);
+  --line: rgba(255, 255, 255, 0.12);
+  --line-soft: rgba(255, 255, 255, 0.06);
+  --line-hover: rgba(148, 163, 184, 0.35);
+  --text: #F8FAFC;
+  --text-dim: #CBD5E1;
+  --text-faint: #94A3B8;
+  --signal: #F59E0B;
+  --signal-soft: rgba(245, 158, 11, 0.14);
+  --signal-border: rgba(245, 158, 11, 0.35);
+  --indigo-accent: #6366F1;
+  --indigo-soft: rgba(99, 102, 241, 0.16);
+  --cyan-accent: #06B6D4;
+  --cyan-soft: rgba(6, 182, 212, 0.16);
+  --noise: #60A5FA;
+  --noise-soft: rgba(96, 165, 250, 0.14);
+  --teal: #10B981;
+  --teal-soft: rgba(16, 185, 129, 0.16);
 }
 
 html {
@@ -23,119 +28,127 @@ html {
 }
 
 body {
-  background: var(--bg);
+  background-color: #060914;
+  background-image: 
+    radial-gradient(circle 900px at 15% 5%, rgba(37, 99, 235, 0.28), transparent 70%),
+    radial-gradient(circle 850px at 85% 15%, rgba(99, 102, 241, 0.25), transparent 65%),
+    radial-gradient(circle 800px at 10% 45%, rgba(14, 165, 233, 0.22), transparent 60%),
+    radial-gradient(circle 850px at 90% 60%, rgba(139, 92, 246, 0.24), transparent 65%),
+    radial-gradient(circle 900px at 20% 85%, rgba(59, 130, 246, 0.25), transparent 70%),
+    linear-gradient(180deg, #070d24 0%, #091334 18%, #0d1238 38%, #08172c 58%, #110e34 78%, #060a1d 92%, #040712 100%);
+  background-attachment: fixed;
   color: var(--text);
-  font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
 }
 
 .mono {
-  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-/* Precision Instrument Reticle & Bracket Corners */
-.bracket-frame {
-  position: relative;
+/* Modern Glassmorphic Container & Card styles */
+.glass-panel {
+  background: var(--panel);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 36px -10px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
 }
 
-.bracket-frame::before,
-.bracket-frame::after,
-.bracket-frame > .bf-tr,
-.bracket-frame > .bf-br {
-  content: "";
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  border-color: var(--text-faint);
-  pointer-events: none;
+.glass-card {
+  background: rgba(14, 21, 38, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 28px -8px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.bracket-frame::before {
-  top: -1px;
-  left: -1px;
-  border-top: 1.5px solid;
-  border-left: 1.5px solid;
-}
-
-.bracket-frame::after {
-  bottom: -1px;
-  left: -1px;
-  border-bottom: 1.5px solid;
-  border-left: 1.5px solid;
-}
-
-.bf-tr {
-  top: -1px;
-  right: -1px;
-  border-top: 1.5px solid var(--text-faint);
-  border-right: 1.5px solid var(--text-faint);
-}
-
-.bf-br {
-  bottom: -1px;
-  right: -1px;
-  border-bottom: 1.5px solid var(--text-faint);
-  border-right: 1.5px solid var(--text-faint);
-}
-
-.grid-fade {
-  background-image:
-    linear-gradient(to right, var(--line-soft) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--line-soft) 1px, transparent 1px);
-  background-size: 40px 40px;
-  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 0%, black 35%, transparent 85%);
-  mask-image: radial-gradient(ellipse 75% 65% at 50% 0%, black 35%, transparent 85%);
+.glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.45), 0 0 20px -6px rgba(99, 102, 241, 0.15);
 }
 
 .panel {
   background: var(--panel);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .panel-alt {
   background: var(--panel-alt);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--line);
+  border-radius: 14px;
 }
 
 .card {
-  background: var(--panel);
+  background: rgba(14, 21, 38, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--line);
-  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-  border-color: #384860;
+  border-color: rgba(99, 102, 241, 0.35);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 14px 32px -8px rgba(0, 0, 0, 0.45), 0 0 20px -8px rgba(99, 102, 241, 0.15);
 }
 
+/* Modern Pill Badges & Buttons */
 .btn-primary {
-  background: var(--signal);
-  color: #1A1204;
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  color: #0F172A;
   font-weight: 600;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px -3px rgba(245, 158, 11, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease, filter 0.15s ease;
 }
 
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px -6px rgba(240, 168, 104, 0.4);
+  filter: brightness(1.05);
+  box-shadow: 0 8px 22px -4px rgba(245, 158, 11, 0.45);
 }
 
 .btn-secondary {
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text);
-  background: rgba(16, 21, 31, 0.7);
-  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease, transform 0.15s ease;
 }
 
 .btn-secondary:hover {
-  border-color: var(--text-dim);
-  color: var(--signal);
-  background: var(--panel-alt);
+  border-color: rgba(99, 102, 241, 0.4);
+  color: #FFFFFF;
+  background: rgba(99, 102, 241, 0.08);
+  transform: translateY(-1px);
 }
 
 .stat-num {
   font-variant-numeric: tabular-nums;
+}
+
+/* Subtle modern mesh / grid */
+.modern-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 /* Custom scrollbars for data tables and logs */
@@ -144,13 +157,32 @@ body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A0E16;
+  background: #070B16;
 }
 ::-webkit-scrollbar-thumb {
-  background: #232E40;
-  border-radius: 3px;
+  background: #1E293B;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3A4A63;
+  background: #334155;
 }
 
+/* KaTeX dark mode equation styling */
+.katex {
+  color: #F8FAFC !important;
+  font-size: 1.08em;
+}
+.katex-display {
+  margin: 0.4em 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.katex .mord, .katex .mbin, .katex .mrel, .katex .mop {
+  color: #F8FAFC;
+}
+.katex .frac-line {
+  border-bottom-color: #CBD5E1 !important;
+}
+.katex .sqrt-sign {
+  color: #CBD5E1 !important;
+}

@@ -1,6 +1,6 @@
 {
   "name": "Atmospheric Microbarometer — SIH26144",
-  "description": "Precision infrasound microbarometer engineering report and interactive system architecture for Smart India Hackathon project SIH26144.",
+  "description": "Precision infrasound microbarometer interactive system architecture and instrumentation for Smart India Hackathon project SIH26144 by Tinkerers Clan.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
